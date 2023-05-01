@@ -35,7 +35,7 @@
 		<property name="city" value="chennai"></property>
 		<property name="pincode" value="442510"></property>
 	</bean>
-
+    
 
 
 </beans>
