@@ -13,12 +13,17 @@ public class Test {
 	
 	public static void main(String[] args) {
 
-		/*Resource r=new ClassPathResource("applicationContext.xml");
+		
+		/*
+		Resource r=new ClassPathResource("applicationContext.xml");
 		BeanFactory factory=new XmlBeanFactory(r);
-
-		Employee emp=(Employee)factory.getBean("emp1");
+	
+		// here at first user request class will get loaded and object are created .
+		   Employee emp=(Employee)factory.getBean("emp1");
+		
 		*/
 
+		// here at xml file loading itself class is loaded and object get created which are declared in xml file . 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Employee emp=(Employee)applicationContext.getBean("emp1");
 		
