@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+	<!-- other class Dependancy -->
+	<bean id="emp1" class="com.dz.app.setterBase.Employee">
+		<property name="id" value="2"></property>
+		<property name="name" value="amit"></property>
+
+		<!-- for list of string -->
+		<!-- <property name="addresses"> <list> <value>Delhi</value> <value>MP</value> 
+			</list> </property> -->
+
+		<!-- for single object -->
+		<!-- <property name="address" ref="addr"></property> -->
+
+		<!-- for list of address -->
+		<property name="addresses">
+			<list>
+				<ref bean="addr" />
+				<ref bean="addr1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="addr" class="com.dz.app.setterBase.Address">
+		<property name="city" value="pune"></property>
+		<property name="pincode" value="401152"></property>
+	</bean>
+	<bean id="addr1" class="com.dz.app.setterBase.Address">
+		<property name="city" value="chennai"></property>
+		<property name="pincode" value="442510"></property>
+	</bean>
+
+
+
+</beans>
