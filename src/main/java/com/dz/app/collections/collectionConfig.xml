@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    
+    <bean name="empr1" class="com.dz.app.collections.Employer" p:id="1" p:name="google">
+        <property name="projects">
+            <list>
+                <value>gmail</value>
+                <value>google drive</value>
+                <value>picasa</value>
+                <value>google meet</value>
+            </list>
+        </property>
+        <property name="clients">
+            <set>
+                <value>infosys</value>
+                <value>wipro</value>
+                <value>cognizent</value>
+                <value>TCS</value>
+                <value>HCL</value>
+            </set>
+        </property>
+        
+        <property name="clientCode">
+            <map>
+                <entry key="001"> <value>infosys</value></entry>
+                <entry key="002" value="wipro" />
+                <entry key="003" value="TCS" />
+                <entry key="004" value="HCL" />
+            </map>
+        </property>
+        
+        <property name="dbProperties">
+            <props>
+                <prop key="url">jdbc:mysql://localhost:3306/hibernatedemo3?createDatabaseIfNotExist=true</prop>
+                <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+                <prop key="userName">root</prop>
+                <prop key="password">root</prop>
+            </props>
+        </property>
+        
+    </bean>
+    
+</beans>    
