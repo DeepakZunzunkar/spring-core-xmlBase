@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    https://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean name="a1" class="com.dz.app.objeRefference.Address" p:id="1" p:city="pune"
+        p:state="MH" p:pincode="400001" p:contry="india" />
+        
+    <bean name="a2" class="com.dz.app.objeRefference.Address" p:id="2" p:city="mumbai"
+        p:state="MH" p:pincode="111045" p:contry="india" />
+        
+    <bean name="a3" class="com.dz.app.objeRefference.Address" p:id="3" p:city="nagpur"
+        p:state="MH" p:pincode="440001" p:contry="india" />
+       
+        
+    <bean name="c1" class="com.dz.app.objeRefference.Customer">
+        <property name="id"  value="101"/>
+        <property name="name" value="sumit" />
+        <property name="address" ref="a1" />
+    </bean>  
+    
+    <bean name="c2" class="com.dz.app.objeRefference.Customer" p:id="102" p:name="amit">
+        <property name="address">
+            <ref bean="a2"/>
+        </property>
+    </bean> 
+    
+    <bean name="c3" class="com.dz.app.objeRefference.Customer" p:id="103" p:name="gopal" p:address-ref="a3"/>     
+                          
+</beans>    
