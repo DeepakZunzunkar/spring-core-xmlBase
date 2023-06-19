@@ -12,8 +12,18 @@ public class Test {
 		
 		Resource r=new ClassPathResource("applicationContext.xml");
 		BeanFactory factory=new XmlBeanFactory(r);
-		Employee emp=(Employee)factory.getBean("emp2");
-		System.out.println(emp);
+		Employee emp1=(Employee)factory.getBean("cemp1"); 
+		System.out.println(emp1);
+		System.out.println("-------------------------\n");
+		Employee emp2=(Employee)factory.getBean("cemp2");
+		System.out.println(emp2);
+		System.out.println("-------------------------\n");
+		
+		System.out.println("Ambiguity Examples.....\n");
+		
+		Calculate calsi1=(Calculate)factory.getBean("calsi1");
+		calsi1.add();
+		
 		
 	}	
 

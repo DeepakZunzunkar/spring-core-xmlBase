@@ -7,6 +7,8 @@ public class Employee {
 	
 	private int id;
 	private String name;
+	private Department department;
+	
 	private List<String> addresses;
 
 	static {
@@ -25,10 +27,27 @@ public class Employee {
 		this.addresses=addresses;
 	}
 	
+	
+	public Employee(int id, String name, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+	}
+
+	
+	public Employee(int id, String name, Department department, List<String> addresses) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.addresses = addresses;
+	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "id : "+id+"\t name :"+name+"\t address :"+addresses;
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", addresses=" + addresses
+				+ "]";
 	}
 
 }

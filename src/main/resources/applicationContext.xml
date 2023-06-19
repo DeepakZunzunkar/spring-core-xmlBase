@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    https://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd">
+    
 
 	<!-- bean definitions here -->
 
@@ -34,21 +39,58 @@
 		<property name="city" value="pune"></property>
 		<property name="pincode" value="401152"></property>
 	</bean>
-	<bean id="addr1" class="com.dz.app.setterBase.Address">
-		<property name="city" value="chennai"></property>
-		<property name="pincode" value="442510"></property>
-	</bean>
+	<bean id="addr1" class="com.dz.app.setterBase.Address" p:city="chennai" p:pincode="442501" />
 
 	<!-- constructor base DI -->
 
-	<bean id="emp2" class="com.dz.app.constructorBase.Employee">
-		<constructor-arg value="2" type="int"></constructor-arg>
-		<constructor-arg value="deepak"></constructor-arg>
+
+    <bean id="CS" class="com.dz.app.constructorBase.Department" p:id="1" p:name="CS"/>
+    <bean id="Mech" class="com.dz.app.constructorBase.Department" p:id="2" p:name="Mechanical" />
+    <bean id="tronix" class="com.dz.app.constructorBase.Department" p:id="3" p:name="Electronix" />
+    
+    <bean id="cemp1" class="com.dz.app.constructorBase.Employee" c:id="101" c:name="amit" c:department-ref="tronix" />
+    
+	<bean id="cemp2" class="com.dz.app.constructorBase.Employee">
+		<constructor-arg value="102" type="int"></constructor-arg>
+		<constructor-arg value="nikhil"></constructor-arg>
+		<constructor-arg>
+		  <ref bean="Mech"/>
+		 </constructor-arg>
 		<constructor-arg>
 			<list>
-				<value>Delhi</value>
-				<value>MP</value>
+				<value>nashik</value>
+				<value>chandrapur</value>
 			</list>
 		</constructor-arg>
 	</bean>
+	
+	<!-- there may be chance of ambiguit problems but can be resolved using type ,index and order   -->
+	
+	<!-- 
+	   if two arg string constructor not present then it will execute constructor which in first place of class file
+	   but first prefrence is to of it's own type
+	   
+	    <bean name="calsi1" class="com.dz.app.constructorBase.Calculate">
+           <constructor-arg value="12"/>
+           <constructor-arg value="13" />
+        </bean>
+        
+        here it will call string arg constructor if it is present.
+         
+	-->
+	
+	<!--
+	
+		<bean name="calsi1" class="com.dz.app.constructorBase.Calculate">
+	       <constructor-arg value="12" type="double" index="1"/>
+	       <constructor-arg value="13" index="0"/>
+	    </bean>
+	    	
+	 -->
+	
+	<bean name="calsi1" class="com.dz.app.constructorBase.Calculate">
+       <constructor-arg value="12" />
+       <constructor-arg value="13"/>
+    </bean>
+	
 </beans>
