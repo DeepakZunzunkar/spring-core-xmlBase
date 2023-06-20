@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:lang="http://www.springframework.org/schema/lang"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/lang
+        http://www.springframework.org/schema/lang/spring-lang.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">        
+
+    <bean name="address2" class="com.dz.app.autowire.xml.Address" p:street="sb road" p:city="pune" />
+    <bean name="address" class="com.dz.app.autowire.xml.Address" p:street="JM road" p:city="pune" />
+    
+    <!-- here it will look into the Employee class and it found that there is dependency of secondary type i.e Address
+     so it will search Address instance by name as specified in employee class i.e it check setter method name ,in spring context and
+      inject that object to this employee class  
+      here we don't use and specify the ref tag in bean tag manually ,DI is automatically-->
+      
+    <bean name="emp1" class="com.dz.app.autowire.xml.Employee" p:name="amit" autowire="byName"/> 
+    
+    
+    <!--it will check constructor argument variable name  and search in context that instance byName is available or not
+    if available then inject in the class object -->
+    <bean name="emp2" class="com.dz.app.autowire.xml.Employee" p:name="sumit" autowire="constructor"/>
+    
+    <!-- <bean name="emp2" class="com.dz.app.autowire.xml.Employee" p:name="deepak" autowire="byType"/> --> 
+    
+</beans>   
