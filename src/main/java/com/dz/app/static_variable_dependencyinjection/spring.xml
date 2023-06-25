@@ -1,0 +1,31 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="c" class="com.dz.app.static_variable_dependencyinjection.Car">
+		
+	</bean>
+	
+	<!-- static variable DI possible by  -->
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="com.dz.app.static_variable_dependencyinjection.Car.setCarName" />
+		<property name="arguments">
+			<list>
+				<value>Audi</value>		<!-- this value will be set in setCarName static method --> 	
+			</list> 
+		</property> 
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="com.dz.app.static_variable_dependencyinjection.Car.setCarTools" />
+        <property name="arguments">
+            <list>
+                <value>stefny</value> 
+                <value>window cleaner gel</value> 
+                <value>music player remote</value>         
+            </list> 
+        </property> 
+    </bean>
+	
+</beans>			
+			
