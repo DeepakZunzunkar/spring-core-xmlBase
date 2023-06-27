@@ -21,5 +21,11 @@ public class App
         
         Employee employee3=(Employee)context.getBean("e3");
         System.out.println(employee3);
+        Employee employee3_1=(Employee)context.getBean("e3");
+        System.out.println(employee3_1);
+        
+        // if we remove scope then hash code same means container return same object as it create singleton object. 
+        System.out.println(employee3.hashCode());
+        System.out.println(employee3_1.hashCode());
     }
 }

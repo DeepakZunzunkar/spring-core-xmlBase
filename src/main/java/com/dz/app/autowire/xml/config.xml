@@ -26,6 +26,9 @@
     if available then inject in the class object -->
     <bean name="emp2" class="com.dz.app.autowire.xml.Employee" p:name="sumit" autowire="constructor"/>
     
+    <bean name="emp3"  class="com.dz.app.autowire.xml.Employee"/>
+    <bean name="emp4"  class="com.dz.app.autowire.xml.Employee"/>
+    
     <!-- <bean name="emp2" class="com.dz.app.autowire.xml.Employee" p:name="deepak" autowire="byType"/> --> 
     
 </beans>   

@@ -13,6 +13,17 @@ public class Test {
 	
 		Employee employee2=context.getBean("emp2",Employee.class);
 		System.out.println(employee2);
+		
+		
+		// by default bean scope is singleton
+		Employee employee3=context.getBean("emp3",Employee.class);
+		System.out.println(employee3);
+		
+		Employee employee4=context.getBean("emp3",Employee.class);
+		System.out.println(employee4);
+		
+		System.out.println(employee3.hashCode());
+		System.out.println(employee4.hashCode());
 	}
 	
 }

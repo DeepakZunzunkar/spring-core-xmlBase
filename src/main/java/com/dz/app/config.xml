@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!-- value as tag -->
 	<bean name="e1"  class="com.dz.app.Employee">
@@ -28,6 +28,7 @@
 	
 
 <!--  p-namespace -->	
+	<!-- <bean name="e3" scope="prototype" class="com.dz.app.Employee" p:id="3" p:name="shunham" p:address="nagpur" /> -->
 	<bean name="e3"  class="com.dz.app.Employee" p:id="3" p:name="shunham" p:address="nagpur" />
     
 </beans>   

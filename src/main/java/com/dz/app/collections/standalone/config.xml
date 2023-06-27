@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/lang
+        http://www.springframework.org/schema/lang/spring-lang.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<util:list list-class="java.util.LinkedList"
+		id="schoolfriends">
+		<value>Amana</value>
+		<value>Suman</value>
+		<value>Chaman</value>
+		<value>Gagan</value>
+	</util:list>
+
+	<util:map map-class="java.util.TreeMap" id="ketanAcaemic">
+		<entry key="2010" value="vidya vihar" />
+		<entry key="2011" value="janta college" />
+		<entry key="2015" value="RTMNU univercity" />
+	</util:map>
+
+	<util:properties id="mysqlConfig">
+		<prop key="url">jdbc:mysql://localhost:3306/hibernatedemo3?createDatabaseIfNotExist=true </prop>
+		<prop key="driverClass">com.mysql.jdbc.Driver</prop>
+		<prop key="userName">root</prop>
+		<prop key="password">root</prop>
+	</util:properties>
+    
+    <util:properties id="mysqlConfig_file" location="com/dz/app/collections/mysql_config.properties"/>
+    
+	<bean name="s1" class="com.dz.app.collections.standalone.Student">
+		<property name="bestFriends" ref="schoolfriends" />
+		<property name="academics" ref="ketanAcaemic" />
+		
+		<!-- <property name="dbConfig" ref="mysqlConfig" /> -->
+		<!-- 
+		 <property name="dbConfig" >
+		  <util:properties location="com/dz/app/collections/mysql_config.properties" />
+		</property>
+		 -->
+		
+		 <property name="dbConfig" ref="mysqlConfig_file" /> 
+		
+	</bean>
+	
+</beans>    

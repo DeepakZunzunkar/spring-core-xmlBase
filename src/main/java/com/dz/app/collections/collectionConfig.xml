@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
     
     
     <bean name="empr1" class="com.dz.app.collections.Employer" p:id="1" p:name="google">
@@ -13,6 +17,7 @@
                 <value>google drive</value>
                 <value>picasa</value>
                 <value>google meet</value>
+                <null/>
             </list>
         </property>
         <property name="clients">
@@ -35,12 +40,13 @@
         </property>
         
         <property name="dbProperties">
-            <props>
+            <!-- <props>
                 <prop key="url">jdbc:mysql://localhost:3306/hibernatedemo3?createDatabaseIfNotExist=true</prop>
                 <prop key="driverClass">com.mysql.jdbc.Driver</prop>
                 <prop key="userName">root</prop>
                 <prop key="password">root</prop>
-            </props>
+            </props> -->
+            <util:properties location="com/dz/app/collections/mysql_config.properties" /> 
         </property>
         
     </bean>
